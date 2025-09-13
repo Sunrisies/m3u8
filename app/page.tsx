@@ -5,12 +5,13 @@ import { Play, TrendingUp, Star } from "lucide-react"
 import Link from "next/link"
 
 export default function HomePage() {
+
   const featuredVideos = [
     {
       id: "1",
       title: "Amazing Nature Documentary",
       description: "Explore the wonders of wildlife in stunning 4K quality",
-      thumbnail: "/nature-documentary-wildlife.jpg",
+      thumbnail: "nature-documentary-wildlife.jpg",
       duration: "45:30",
       views: "2.1M",
       rating: 4.8,

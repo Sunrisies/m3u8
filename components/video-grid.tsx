@@ -17,7 +17,7 @@ export function VideoGrid() {
       title: "Amazing Nature Documentary: Wildlife in 4K",
       description:
         "Explore the breathtaking world of wildlife captured in stunning 4K resolution. From majestic lions to colorful birds.",
-      thumbnail: "/nature-documentary-wildlife.jpg",
+      thumbnail: "nature-documentary-wildlife.jpg",
       duration: "45:30",
       views: "2.1M",
       rating: 4.8,

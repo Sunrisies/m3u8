@@ -13,7 +13,7 @@ const getVideoById = (id: string) => {
       description:
         "Explore the breathtaking world of wildlife captured in stunning 4K resolution. From majestic lions to colorful birds, this documentary takes you on an incredible journey through nature's most spectacular moments.",
       thumbnail: "/nature-documentary-wildlife.jpg",
-      videoUrl: "https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8", // Sample M3U8 stream
+      videoUrl: "http://localhost:3001/index.m3u8", // Sample M3U8 stream
       duration: "45:30",
       views: "2.1M",
       rating: 4.8,
