@@ -4,6 +4,7 @@ import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
+import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -37,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+    <html lang="zh-CN" suppressHydrationWarning className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <head>
         <meta name="format-detection" content="telephone=no" />
         <meta name="mobile-web-app-capable" content="yes" />
@@ -45,9 +46,11 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       </head>
       <body className="font-sans antialiased min-h-screen bg-background text-foreground">
-        <Suspense fallback={<div>Loading...</div>}>
-          <div className="relative flex min-h-screen flex-col">{children}</div>
-        </Suspense>
+        <ThemeProvider defaultTheme="system" storageKey="streamhub-theme">
+          <Suspense fallback={<div>Loading...</div>}>
+            <div className="relative flex min-h-screen flex-col">{children}</div>
+          </Suspense>
+        </ThemeProvider>
         <Analytics />
       </body>
     </html>
