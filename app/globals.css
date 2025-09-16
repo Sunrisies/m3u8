@@ -111,6 +111,46 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+
+  --container-3xs: 16rem;
+  --container-2xs: 18rem;
+  --container-xs: 20rem;
+  --container-sm: 24rem;
+  --container-md: 28rem;
+  --container-lg: 32rem;
+  --container-xl: 36rem;
+  --container-2xl: 42rem;
+  --container-3xl: 48rem;
+  --container-4xl: 56rem;
+  --container-5xl: 64rem;
+  --container-6xl: 72rem;
+  --container-7xl: 80rem;
+}
+
+.container {
+  width: 100%;
+  margin: auto;
+
+  @media (width >=40rem) {
+    max-width: 40rem;
+  }
+
+  @media (width >=48rem) {
+    max-width: 48rem;
+  }
+
+  @media (width >=64rem) {
+    max-width: 64rem;
+  }
+
+  @media (width >=80rem) {
+    max-width: 80rem;
+  }
+
+  @media (width >=96rem) {
+    max-width: 96rem;
+  }
 }
 
 @layer base {
