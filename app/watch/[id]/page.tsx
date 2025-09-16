@@ -1,5 +1,5 @@
 import { Navigation } from "@/components/navigation"
-import { VideoPlayer } from "@/components/video-player"
+import { EnhancedVideoPlayer } from "@/components/enhanced-video-player"
 import { VideoRecommendations } from "@/components/video-recommendations"
 import { VideoInfo } from "@/components/video-info"
 import { notFound } from "next/navigation"
@@ -103,8 +103,8 @@ export default function WatchPage({ params }: WatchPageProps) {
           {/* Main Video Section */}
           <div className="lg:col-span-2">
             <div className="space-y-4">
-              {/* Video Player */}
-              <VideoPlayer video={video} />
+              {/* Enhanced Video Player */}
+              <EnhancedVideoPlayer video={video} />
 
               {/* Video Info */}
               <VideoInfo video={video} />

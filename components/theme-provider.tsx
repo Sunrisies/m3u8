@@ -33,32 +33,44 @@ export function ThemeProvider({
 
   useEffect(() => {
     const root = window.document.documentElement
+    
+    // 初始化时从localStorage读取主题
     const savedTheme = localStorage.getItem(storageKey) as Theme | null
-
-    if (savedTheme) {
+    if (savedTheme && savedTheme !== theme) {
       setTheme(savedTheme)
+      return
     }
+  }, [])
 
-    const applyTheme = (theme: Theme) => {
-      if (theme === "dark" || (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+  useEffect(() => {
+    const root = window.document.documentElement
+    
+    const applyTheme = (currentTheme: Theme) => {
+      root.classList.remove("light", "dark")
+      
+      if (currentTheme === "dark") {
         root.classList.add("dark")
-      } else {
-        root.classList.remove("dark")
+      } else if (currentTheme === "light") {
+        root.classList.add("light")
+      } else if (currentTheme === "system") {
+        const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
+        root.classList.add(systemPrefersDark ? "dark" : "light")
       }
     }
 
-    applyTheme(savedTheme || defaultTheme)
+    applyTheme(theme)
 
+    // 监听系统主题变化
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)")
-    const handleChange = () => {
+    const handleSystemThemeChange = () => {
       if (theme === "system") {
         applyTheme("system")
       }
     }
 
-    mediaQuery.addEventListener("change", handleChange)
-    return () => mediaQuery.removeEventListener("change", handleChange)
-  }, [theme, defaultTheme, storageKey])
+    mediaQuery.addEventListener("change", handleSystemThemeChange)
+    return () => mediaQuery.removeEventListener("change", handleSystemThemeChange)
+  }, [theme])
 
   const value = {
     theme,

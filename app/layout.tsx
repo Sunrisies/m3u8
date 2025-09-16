@@ -14,11 +14,6 @@ export const metadata: Metadata = {
   generator: "v0.app",
   keywords: ["video streaming", "online videos", "documentaries", "tutorials", "entertainment"],
   authors: [{ name: "StreamHub" }],
-  viewport: "width=device-width, initial-scale=1, maximum-scale=5",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#0f172a" },
-  ],
   openGraph: {
     title: "StreamHub - Video Streaming Platform",
     description: "Discover and stream high-quality videos from creators around the world.",
@@ -30,6 +25,18 @@ export const metadata: Metadata = {
     title: "StreamHub - Video Streaming Platform",
     description: "Discover and stream high-quality videos from creators around the world.",
   },
+}
+
+export function generateViewport() {
+  return {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+    themeColor: [
+      { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+      { media: "(prefers-color-scheme: dark)", color: "#0f172a" },
+    ],
+  }
 }
 
 export default function RootLayout({

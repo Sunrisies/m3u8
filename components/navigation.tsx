@@ -36,6 +36,7 @@ import {
   Dumbbell,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 export function Navigation() {
   const pathname = usePathname()
@@ -107,6 +108,14 @@ export function Navigation() {
                     )
                   })}
                 </nav>
+
+                {/* 移动端主题切换 */}
+                <div className="border-t p-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-medium text-muted-foreground">主题模式</span>
+                    <ThemeToggle />
+                  </div>
+                </div>
               </div>
             </SheetContent>
           </Sheet>
@@ -169,6 +178,9 @@ export function Navigation() {
           <Button variant="ghost" size="icon" className="sm:hidden">
             <Search className="h-4 w-4" />
           </Button>
+
+          {/* Theme Toggle - 显眼位置 */}
+          <ThemeToggle />
 
           {/* User Menu */}
           <DropdownMenu>
